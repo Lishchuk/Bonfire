@@ -1,0 +1,79 @@
+//
+//  Variables
+//  ---------------------------------------------
+
+@minicart-qty__height: 12px;
+
+& when (@media-common = true) {
+  .minicart {
+    &-wrapper {
+      width: 33.33%;
+      margin: 0;
+      text-align: right;
+      .action {
+        &.showcart {
+          min-width: 70px;
+          padding: 4px 0;
+          font-size: 12px;
+          text-align: center;
+          text-transform: uppercase;
+          border: 2px solid @minicart-color__btn;
+          cursor: pointer;
+          transition: all .3s linear;
+          &:hover {
+            background-color: @minicart-color__btn;
+            color: @color-white;
+            .counter.qty,
+            .counter.qty.empty {
+              color: @color-white
+            }
+          }
+
+          .text {
+            position: relative;
+          }
+
+          .counter {
+            &.qty,
+            &.empty{
+              vertical-align: middle;
+              margin: 0;
+              padding: 0;
+              color: @primary__color;
+              background-color: transparent;
+            }
+
+            &.qty {
+              transition: all .3s linear;
+              &.empty {
+                display: inline-block;
+                vertical-align: middle;
+                transition: all .3s linear;
+              }
+            }
+          }
+        }
+      }
+
+      .product {
+        .actions {
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .minicart {
+    &-wrapper {
+      margin-left: 0;
+      .action {
+        &.showcart {
+          min-width: 128px;
+          padding: 11px 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+$required = '';
+if ($block->hasRequiredOptions()) {
+    $required = ' data-hasrequired="' . __('* Required Fields') . '"';
+}
+?>
+<div class="product-options-wrapper" id="product-options-wrapper"<?= /* @escapeNotVerified */ $required ?>>
+    <div class="fieldset" tabindex="0">
+        <?= $block->getChildHtml('', true) ?>
+      <div class="field qty">
+        <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
+        <div class="control">
+          <input type="number"
+                 name="qty"
+                 id="qty"
+                 value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                 title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                 class="input-text qty"
+                 data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+          />
+        </div>
+      </div>
+    </div>
+   <a class="clear-select" href="#"><?= /* @escapeNotVerified */ __('Clear selection') ?></a>
+</div>

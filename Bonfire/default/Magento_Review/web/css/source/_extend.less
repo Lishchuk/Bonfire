@@ -1,0 +1,76 @@
+& when (@media-common = true) {
+  .product-reviews {
+    &-summary {
+      margin: 0 0 23px;
+
+      &.empty {
+        .action {
+          &.add {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .reviews-actions {
+        display: block;
+
+        a {
+          margin-right: 26px;
+
+          &.view {
+            font-weight: 300;
+            color: #555555;
+            transition: all .3s linear;
+            &:hover {
+              color: @primary__color;
+              border-bottom: 1px dashed @color-blue;
+            }
+          }
+
+          &.add {
+            position: relative;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: all .3s linear;
+            &:hover {
+              text-decoration: @color-blue dashed underline;
+            }
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -16px;
+              bottom: 0;
+              border-left: 1px solid #b0b0b0;
+            }
+          }
+        }
+      }
+
+      .rating {
+        &-summary {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+  .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .product-reviews {
+      &-summary {
+        .reviews-actions {
+          display: inline-block;
+        }
+
+        .rating {
+          &-summary {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,39 @@
+& when (@media-common = true) {
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+
+  h1 {
+    font-weight: @font-weight__bold;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    > li {
+      margin: 0;
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  button {
+    border-radius: 0;
+  }
+
+  .breadcrumbs {
+    .lib-breadcrumbs(
+      @_breadcrumbs-font-size: 13px,
+      @_breadcrumbs-link-color: #999999,
+      @_breadcrumbs-link-color-visited: #999999
+    );
+  }
+}

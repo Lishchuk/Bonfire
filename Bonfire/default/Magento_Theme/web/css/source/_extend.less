@@ -1,0 +1,221 @@
+& when (@media-common = true) {
+  .nav-burger {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+    &:before {
+      font-size: 20px;
+      line-height: 20px;
+      color: @primary__color;
+      content: '\e609';
+      font-family: 'icons-blank-theme';
+      vertical-align: middle;
+      display: inline-block;
+      font-weight: @font-weight__bold;
+      overflow: hidden;
+      text-align: center;
+    }
+  }
+
+  .logo {
+    float: none;
+    max-width: 100%;
+    margin: 0;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .header {
+    &.content {
+      .lib-vendor-prefix-display(flex);
+      .lib-vendor-box-align(center);
+      justify-content: space-between;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    &-logo {
+      width: 33.33%;
+      text-align: center;
+    }
+
+    &.links {
+      display: inline-block;
+      vertical-align: middle;
+      li:not(.wishlist) {
+        display: none;
+      }
+
+      .wishlist {
+        a {
+          font-size: 0;
+          transition: all .3s linear;
+          &:hover {
+            color: @color-blue;
+          }
+
+          &:before {
+            content: '\e902';
+            font-family: 'icomoon';
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .page-header {
+    border: none;
+    margin: 0;
+    .switcher {
+      width: 33.33%;
+      margin: 0;
+      strong {
+        span {
+          font-size: 12px;
+        }
+      }
+
+      .options {
+        ul {
+          &.dropdown {
+            li:hover {
+              background: #f9f9f9;
+            }
+          }
+        }
+      }
+
+      .language {
+        &-UAH {
+          &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+            z-index: 2;
+            background-image: url('@{baseDir}images/uk.png');
+            background-size: cover;
+          }
+        }
+
+        &-USD {
+          &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+            z-index: 2;
+            background-image: url('@{baseDir}images/usa.png');
+            background-size: cover;
+          }
+        }
+
+        &-EUR {
+          &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 11px;
+            margin-right: 5px;
+            z-index: 2;
+            background-image: url('@{baseDir}images/eur.png');
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .sections {
+    &-nav {
+      margin-bottom: 48px;
+      border-top: 1px solid @border-color__grey;
+      border-bottom: 1px solid @border-color__grey;
+    }
+
+    &-nav-wrap {
+      max-width: @layout__max-width;
+      width: 100%;
+      margin: 0 auto;
+      padding: 26px @layout-indent__width;
+      &:after {
+        content: '';
+        clear: both;
+        display: block;
+      }
+    }
+
+    &-nav-links {
+      text-align: center;
+      z-index: 3;
+    }
+  }
+
+  .page {
+    &-footer {
+      border-top: 1px solid #e1e1e1;
+    }
+  }
+
+  .footer {
+    &.content {
+      margin: 0;
+      border: none
+    }
+
+    .copyright {
+      margin: 0;
+      font-size: 13px;
+      color: #b5b5b5;
+      text-align: center;
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .page-main {
+    margin-bottom: 71px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .header {
+    &.content {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+
+  .sections {
+    &-nav-wrap {
+      position: relative;
+    }
+
+    &-nav-links {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px;
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .nav-burger {
+    display: inline-block;
+  }
+}

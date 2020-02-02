@@ -1,0 +1,118 @@
+& when (@media-common = true) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .navigation {
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    ul {
+      padding: 0;
+    }
+
+    li {
+      &.level0{
+        &:last-child {
+          border-bottom: 1px dashed #efefef;
+        }
+      }
+    }
+
+    .parent {
+      .level-top {
+        &:after {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    .level0 {
+      margin-bottom: 10px;
+      padding: 5px;
+      border-bottom: 1px dashed #efefef;
+      border-top: 0;
+      > .level-top {
+        padding: 0;
+        font-weight: @font-weight__regular;
+        color: @primary__color;
+        line-height: inherit;
+        transition: all .3s linear;
+        &:hover {
+          color: @color-blue;
+        }
+      }
+
+      &.active,
+      &.has-active {
+        > .level-top {
+          border: none;
+          color: @color-blue;
+          font-weight: @font-weight__bold;
+        }
+
+        > a:not(.ui-state-active) {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .navigation {
+    text-align: left;
+    background-color: transparent;
+    li {
+      &.level0 {
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .level0 {
+      margin-right: 55px;
+      padding: 0;
+      border-bottom: none;
+      > .level-top {
+        padding: 0;
+        line-height: inherit;
+        transition: all .3s linear;
+        &:hover {
+          color: @color-blue;
+        }
+      }
+
+      &.active,
+      &.has-active {
+        > .level-top {
+          color:@color-blue;
+        }
+      }
+
+      .submenu {
+        font-weight: @font-weight__regular;
+        a {
+          &:hover {
+            background: #f9f9f9;
+          }
+
+          &.ui-state-focus {
+            background: #f9f9f9;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .navigation {
+    text-align: center;
+  }
+}

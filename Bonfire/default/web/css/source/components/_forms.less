@@ -1,0 +1,118 @@
+& when (@media-common = true) {
+  select {
+    height: 35px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: @font-weight__light;
+    color: #8e8e8e;
+    border-color: @border-color__grey;
+    transition: all .3s linear;
+    &:not([disabled]) {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    
+    &:hover {
+      border-color: @color-blue;
+    }
+  }
+
+  .fieldset {
+    margin-bottom: 33px;
+  }
+
+  input[type="number"] {
+    height: 35px;
+    font-size: 13px;
+    font-weight: @font-weight__light;
+    color: #838383;
+    border-color: @border-color__grey;
+    transition: all .3s linear;
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      border-color: @color-blue;
+    }
+  }
+
+  .product-add-form {
+    .fieldset {
+      > .field {
+        display: inline-block;
+        width: 168px;
+        margin: 0 28px 20px 0;
+        > .label {
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          span {
+            letter-spacing: 1px;
+          }
+        }
+
+        &.qty {
+          width: 35px;
+          .input-text {
+            text-align: center;
+          }
+
+          > .control {
+            position: relative;
+          }
+
+          button {
+            position: absolute;
+            right: -33px;
+            background: transparent;
+            padding: 8px 16px;
+            &:before {
+              content: '';
+              position: absolute;
+              border-style: solid;
+              border-width: 0 5px 5px 5px;
+              border-color: transparent transparent #cccccc transparent;
+              top: 50%;
+              transform: translateY(-50%) translateX(-50%);
+            }
+
+            &.add {
+              bottom: 0;
+              &:before {
+                transform: translateY(-50%) translateX(-50%) rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .clear-select {
+      font-size: 12px;
+      color: #313131;
+      text-transform: uppercase;
+      border-bottom: 1px solid #6a6a6a;
+      transition: all .3s linear;
+      &:hover {
+        color: @color-blue;
+        border-bottom-color: @color-blue;
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .product-add-form {
+    .fieldset {
+      > .field {
+        margin: 0 28px 10px 0;
+        > .label {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,111 @@
+& when (@media-common = true) {
+  .block-search {
+    float: none;
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    margin-left: 28px;
+    margin-top: 0;
+    padding: 0;
+    &:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      left: -12px;
+      border-left: 1px dashed #999999;
+    }
+
+    .nested {
+      display: none;
+    }
+
+    .label {
+      cursor: pointer;
+      &:before {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+
+    .control {
+      position: absolute;
+      display: none;
+      right: 0;
+      width: 200px;
+      top: 30px;
+      border-top: none;
+      margin: 0;
+      padding: 0;
+      &.show {
+        display: block;
+      }
+    }
+
+    input {
+      border-radius: 5px;
+      margin: 0;
+      left: 0;
+    }
+
+    .field {
+      &.search {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .action {
+      &.search {
+        position: relative;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        &[disabled] {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .block-search {
+    float: none;
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    margin-left: 28px;
+    padding: 0;
+    &:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      left: -12px;
+      border-left: 1px dashed #999999;
+    }
+
+    .nested {
+      display: none;
+    }
+
+    .field {
+      &.search {
+        position: absolute;
+        display: none;
+      }
+    }
+
+    .action {
+      &.search {
+        position: relative;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        &[disabled] {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
